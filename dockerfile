@@ -1,9 +1,15 @@
 FROM alpine:latest
 
-MAINTAINER Cyber Mainstay "info@cybermainstay.com"
+LABEL org.opencontainers.image.title: "nut-upsd" \
+	org.opencontainers.image.description: "Network UPS Tools nut-upsd running in Alpine container" \
+	org.opencontainers.image.licenses: "GNU General Purpose License v3.0" \
+	org.opencontainers.image.vendor: "Cyber Mainstay" \
+	org.opencontainers.image.version: "2.8.0-r0" \
+	org.opencontainers.image.source: "https://networkupstools.org" \
+	org.opencontainers.image.url: "https://github.com/CyberMainstay/nut-upsd" \
+	org.opencontainers.image.authors: "Steven Bazzell"
 
-# For more automated updates, simply add NUT repo to the repo list
-# If you want stable releases only, change 'edge' to 'last-stable'
+# Open up more repositories so we can unstall nut
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
