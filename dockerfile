@@ -15,7 +15,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
 
 # Install NUT Server
 RUN apk update && apk upgrade
-RUN apk add nut libcrypto1.1 libssl1.1 net-snmp-libs
+RUN apk add nut libcrypto1.1 libssl1.1 net-snmp-libs musl
 
 # Create directory for nut in /var/run
 RUN mkdir -p /var/run/nut && \
@@ -24,9 +24,10 @@ RUN mkdir -p /var/run/nut && \
 
 # Copy over the startup script
 COPY files/startup.sh /usr/local/bin/startup.sh
+RUN chown root:nut /usr/local/bin/startup.sh
 RUN chmod 700 /usr/local/bin/startup.sh
 
 EXPOSE 3493
 
-ENTRYPOINT ["/usr/local/bin/startup.sh"]
-
+ENTRYPOINT [ "/usr/local/bin/startup.sh" ]
+CMD [ "run" ]
