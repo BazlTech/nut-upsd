@@ -13,6 +13,10 @@
 # DESCRIPTION:	This script will check for config files needed to run upsd.
 #
 
+# Ignore PID warning message
+echo 0 > /var/run/nut/upsd.pid && chown nut:nut /var/run/nut/upsd.pid
+echo 0 > /var/run/upsmon.pid
+
 # Initialize UPSD
 printf "Starting UPS drivers...\n"
 /usr/sbin/upsdrvctl -u root start || { printf "ERROR: Unable to start UPS Drivers.\n"; exit; }
@@ -21,5 +25,7 @@ printf "Starting UPS drivers...\n"
 printf "Starting UPS daemon...\n"
 /usr/sbin/upsd -u nut || { printf "ERROR: Unable to start UPSD.\n"; exit; }
 
+# Start UPS Monitor service
+exec /usr/sbin/upsmon -D
 
 

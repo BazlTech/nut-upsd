@@ -30,4 +30,3 @@ RUN chmod 700 /usr/local/bin/startup.sh
 EXPOSE 3493
 
 ENTRYPOINT [ "/usr/local/bin/startup.sh" ]
-CMD [ "run" ]
