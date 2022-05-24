@@ -22,7 +22,7 @@ RUN mkdir -p /var/run/nut && \
 	chmod 700 /var/run/nut
 
 # Create a directory for manual nut config files
-RUN mkdir /opt/nut/conf && \
+RUN mkdir -p /opt/nut/conf && \
 	chown nut:nut /opt/nut/conf && \
 	chmod 700 /opt/nut/conf
 

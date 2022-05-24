@@ -20,29 +20,29 @@ echo 0 > /var/run/upsmon.pid
 echo "MODE = $NUT_MODE" > /etc/nut/nut.conf
 
 # Set UPS variables in ups.conf
-echo "pollinterval = 1\n" > /etc/nut/ups.conf
-echo "maxretry = 3\n\n" >> /etc/nut/ups.conf
-echo "[$UPS_NAME]\n" >> /etc/nut/ups.conf
-echo "driver = $UPS_DRIVER\n" >> /etc/nut/ups.conf
-echo "port = $UPS_PORT\n" >> /etc/nut/ups.conf
-echo "desc = $UPS_DESC\n" >> /etc/nut/ups.conf
-echo "vendorid = $UPS_VENDORID\n" >> /etc/nut/ups.conf
-echo "productid = $UPS_PRODUCTID\n" >> /etc/nut/ups.conf
+echo "pollinterval = 1" > /etc/nut/ups.conf
+echo "maxretry = 3" >> /etc/nut/ups.conf
+echo "[$UPS_NAME]" >> /etc/nut/ups.conf
+echo "driver = $UPS_DRIVER" >> /etc/nut/ups.conf
+echo "port = $UPS_PORT" >> /etc/nut/ups.conf
+echo "desc = $UPS_DESC" >> /etc/nut/ups.conf
+echo "vendorid = $UPS_VENDORID" >> /etc/nut/ups.conf
+echo "productid = $UPS_PRODUCTID" >> /etc/nut/ups.conf
 
 # Set up UPSD configuration in upsd.conf
 if [[ "$UNIT_MODE" == "single" ]]
 then
-	echo "LISTEN 127.0.0.1 3493\n" > /etc/nut/upsd.conf
-	echo "LISTEN ::1 3493" >> /etc/nut/upsd.conf
+	echo "LISTEN 127.0.0.1 3493" > /etc/nut/upsd.conf
+	#echo "LISTEN ::1 3493" >> /etc/nut/upsd.conf
 else
-	echo "LISTEN 0.0.0.0 3493\n" > /etc/nut/upsd.conf
-	echo "LISTEN :: 3493" >> /etc/nut/upsd.conf
+	echo "LISTEN 0.0.0.0 3493" > /etc/nut/upsd.conf
+	#echo "LISTEN :: 3493" >> /etc/nut/upsd.conf
 fi
 
 # Set up UPS monitor config file in upsd.users
-echo "[upsmon]\n" > /etc/nut/upsd.users
-echo "password = $UPSMON_PASS\n" >> /etc/nut/upsd.users
-echo "upsadmin master"
+echo "[upsmon]" > /etc/nut/upsd.users
+echo "password = $UPSMON_PASS" >> /etc/nut/upsd.users
+echo "upsadmin master" >> /etc/nut/upsd.users
 
 # Set up the monitoring in upsmon.conf
 echo "MONITOR $UPS_NAME@localhost 1 upsmon $UPSMON_PASS master" > /etc/nut/upsmon.conf
@@ -51,13 +51,13 @@ echo "MONITOR $UPS_NAME@localhost 1 upsmon $UPSMON_PASS master" > /etc/nut/upsmo
 # from /opt/nut/conf/
 if [[ "$UNIT_MODE" != "single" ]]
 then
-	COUNTFILES=`ls 2>/dev/null -Ubad1 -- /opt/nut/conf/*.conf | wc -l`
+	COUNTFILES=`ls 2>/dev/null -Ubad1 -- /opt/nut/conf/* | wc -l`
 	if [[ $COUNTFILES -lt 4 ]]
 		then
 			echo "MISSING CONFIG FILES.  EXITING."
 			exit N
 		else 
-			cp /opt/nut/conf/*.conf /etc/nut/
+			cp /opt/nut/conf/* /etc/nut/
 	fi
 fi
 
