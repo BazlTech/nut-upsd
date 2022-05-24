@@ -43,6 +43,7 @@ ENV NUT_MODE="standalone"
 # Set up UPS configuration.
 # Default driver set to 'usbhid-ups' - You will need to set this to what your UPS unit needs
 # For more driver information, visit https://github.com/networkupstools/nut/blob/master/data/driver.list.in
+ENV UPS_NAME="MyUPS"
 ENV UPS_DRIVER="usbhid-ups"
 
 # Port is almost always auto unless you have a use case otherwise
