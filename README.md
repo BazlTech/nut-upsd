@@ -42,7 +42,7 @@ Similar to UPS_VENDORID, this variable is needed by some manufacturers like APC 
 Default is blank.
 
 #### UPSMON_PASS
-Set a password for creating the UPSMON user account
+- Set a password for creating the UPSMON user account
 Default is "password"
 
 ## Docker-Compose Example
