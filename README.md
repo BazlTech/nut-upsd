@@ -4,8 +4,17 @@ Docker image for Network UPS Tools Driver Daemon
 
 ## Usage
 
-This image does not use environmental variables to configure NUT config files like many other images. 
-This way you can configure to your own needs for more than one UPS unt, allowing you to run a single container for multiple units.
+This image has two operating modes, `single` and `custom` as declared by the ***UNIT_MODE*** ENV variable.
+This way you can configure to your own needs for more than one UPS unit or a custom configuration.
+In `single` mode, you'll need to declare the environmental variables for a single unit, just like many other
+conatiner images for Network UPS Tools.  These variables will autoconfigure NUT for you.
+If run in `custom` mode, you'll need to create the config files necessary, and map that volume to `/opt/nut/conf/`
+
+## Environment Variables
+### UNIT_MODE
+This variable is `single` by default.
+`custom` mode will require you to create the config files necessary and map them to /opt/nut/conf/
+
 
 ## Docker-Compose Example
 
