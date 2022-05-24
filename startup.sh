@@ -42,10 +42,10 @@ fi
 # Set up UPS monitor config file in upsd.users
 echo "[upsmon]" > /etc/nut/upsd.users
 echo "password = $UPSMON_PASS" >> /etc/nut/upsd.users
-echo "upsadmin master" >> /etc/nut/upsd.users
+echo "upsmon primary" >> /etc/nut/upsd.users
 
 # Set up the monitoring in upsmon.conf
-echo "MONITOR $UPS_NAME@localhost 1 upsmon $UPSMON_PASS master" > /etc/nut/upsmon.conf
+echo "MONITOR $UPS_NAME@localhost 1 upsmon $UPSMON_PASS primary" > /etc/nut/upsmon.conf
 
 # If using this container in a custom or multiple-unit mode, copy over mapped volume config files
 # from /opt/nut/conf/
