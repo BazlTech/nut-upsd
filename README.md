@@ -11,10 +11,39 @@ conatiner images for Network UPS Tools.  These variables will autoconfigure NUT 
 If run in `custom` mode, you'll need to create the config files necessary, and map that volume to `/opt/nut/conf/`
 
 ## Environment Variables
-### UNIT_MODE
+#### UNIT_MODE
 This variable is `single` by default.
 `custom` mode will require you to create the config files necessary and map them to /opt/nut/conf/
 
+#### NUT_MODE
+This variable is `standalone` by default.  Any further advanced configuration will require you to 
+set UNIT_MODE to `custom` and visit [NUT Docs](https://networkupstools.org/docs/man/nut.conf.html) for more details.
+
+#### UPS_NAME
+Pretty obvious - whatever you want to call it.  Default value is "MyUPS"
+
+#### UPS_DRIVER
+This is needed to set the driver to whatever your UPS unit requires for communication.
+Default is "usbhid-ups"
+For more driver options, see [NUT Docs](https://github.com/networkupstools/nut/blob/master/data/driver.list.in)
+
+#### UPS_PORT
+Default is 3493
+
+#### UPS_DESC
+Set the description of your UPS unit.  Default is "Description"
+
+#### UPS_VENDORID
+This is required for some manufacturers like APC and CyberPower.
+Default is blank.
+
+#### UPS_PRODUCTID
+Similar to UPS_VENDORID, this variable is needed by some manufacturers like APC and CyberPower.
+Default is blank.
+
+#### UPSMON_PASS
+Set a password for creating the UPSMON user account
+Default is "password"
 
 ## Docker-Compose Example
 
