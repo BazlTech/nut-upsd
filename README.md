@@ -62,7 +62,7 @@ version: '3.3'
 services:
   
   nuts:
-    image: nut-upsd
+    image: cybermainstay/nut-upsd:latest
     container_name: nuts
     networks:
       - monitoring
@@ -93,7 +93,7 @@ version: '3.3'
 services:
   
   nuts:
-    image: nut-upsd
+    image: cybermainstay/nut-upsd:latest
     container_name: nuts
     networks:
       - monitoring
