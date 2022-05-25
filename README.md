@@ -78,6 +78,7 @@ services:
       UPS_DESC: "APC1500VA Powering the firewall"
       UPS_VENDORID: "0744"
       UPS_PRODUCTID: "0532"
+      UPS_SERIAL: "3405494"
       UPSMON_PASS: "SuperSecretPASSWORD"
     restart: on-failure:2
     
