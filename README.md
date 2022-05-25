@@ -115,5 +115,13 @@ networks:
 ```
 
 ## Config Files
+When using this container in `custom` UNIT_MODE, you'll need to manually create the configuration files.  
+Map that directory to /opt/nut/conf/ in the container.  The image will copy these to /etc/nut/ at run.
+Any changes will require you to restart the conatiner before they take place.
 
-You'll need
+You'll need the following configuration files:
+- nut.conf
+- ups.conf
+- upsd.conf
+- upsd.users
+- upsmon.conf
