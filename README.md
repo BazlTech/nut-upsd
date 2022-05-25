@@ -1,6 +1,6 @@
 # Network UPS Tools UPSD
 
-Docker image for Network UPS Tools Driver Daemon
+Docker image for Network UPS Tools Driver Daemon.  This image does NOT container the web portion.
 
 ## Usage
 
