@@ -28,6 +28,7 @@ echo "port = $UPS_PORT" >> /etc/nut/ups.conf
 echo "desc = $UPS_DESC" >> /etc/nut/ups.conf
 echo "vendorid = $UPS_VENDORID" >> /etc/nut/ups.conf
 echo "productid = $UPS_PRODUCTID" >> /etc/nut/ups.conf
+echo "serial = $UPS_SERIAL" >> /etc/nut/ups.conf
 
 # Set up UPSD configuration in upsd.conf
 if [[ "$UNIT_MODE" == "single" ]]

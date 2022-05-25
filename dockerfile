@@ -50,9 +50,10 @@ ENV UPS_DRIVER="usbhid-ups"
 ENV UPS_PORT="auto"
 ENV UPS_DESC="Description"
 
-# You will need to set the vendorid and productid for certain brands like APC and CyberPower
+# You will need to set these for certain brands like APC and CyberPower
 ENV UPS_VENDORID=""
 ENV UPS_PRODUCTID=""
+ENV UPS_SERIAL=""
 
 # Set up UPS monitor user and password
 ENV UPSMON_PASS="password"
