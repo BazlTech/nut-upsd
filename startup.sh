@@ -51,8 +51,8 @@ echo "MONITOR $UPS_NAME@localhost 1 upsmon $UPSMON_PASS primary" > /etc/nut/upsm
 # from /opt/nut/conf/
 if [[ "$UNIT_MODE" != "single" ]]
 then
-	COUNTFILES=`ls 2>/dev/null -Ubad1 -- /opt/nut/conf/* | wc -l`
-	if [[ $COUNTFILES -lt 4 ]]
+	COUNTFILES=`ls 2>/dev/null -- /opt/nut/conf/ | wc -l`
+	if [[ $COUNTFILES -lt 5 ]]
 		then
 			echo "MISSING CONFIG FILES.  EXITING."
 			exit N
