@@ -48,7 +48,7 @@ Default is "password"
 ## Docker Deployment Extra Required Steps
 #### Privileged Access
 Most other nut-upsd images in the docker hub repo have you run the container in privileged mode.  Using more restrictive device mappings is more secure.
-You may or may not have to adjust this.  Running `docker exec container_name nut-scanner -U` within the container will tell you exactly what bus it is on.  Just make
+You may or may not have to adjust this.  Running `docker exec container_name nut-scanner -U` will tell you exactly what bus it is on.  Just make
 sure that matches what is in your device mapping in your docker-compose file.
 
 #### VENDORID and PRODUCTID
