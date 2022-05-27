@@ -57,7 +57,7 @@ For UPS units that need these, you'll need to first deploy the container, and th
 
 ### Docker-Compose UNIT_MODE=single Example
 
-```console
+```yaml
 version: '3.3'
 services:
   
@@ -89,7 +89,7 @@ networks:
 
 ### Docker-Compose UNIT_MODE=custom Example
 
-```console
+```yaml
 version: '3.3'
 services:
   
